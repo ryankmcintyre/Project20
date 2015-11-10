@@ -8,9 +8,12 @@
         $(document).ready(function () {
             app.initialize();
 
-            // Initialize Office UI Fabric Pivot
+            // Initialize Office UI Fabric Controls
             if ($.fn.Pivot) {
                 $('.ms-Pivot').Pivot();
+            }
+            if ($.fn.SearchBox) {
+                $('.ms-SearchBox').SearchBox();
             }
 
             addTabEvent();
@@ -22,15 +25,11 @@
             //event.preventDefault();
             var clickedTabId = $(this).attr("id");
             var divToShow = clickedTabId.replace("tab", "");
-
-            app.showNotification("test", "clicked on: " + divToShow);
+            // Hide all divs, then show the one selected
+            $('#Flickr').hide();
+            $('#Code').hide();
+            $('#' + divToShow).show();
         });
-    }
-
-    function displayTab(tabToDisplay) {
-        event.preventDefault();
-        $(this).siblings('.ms-Pivot-link').removeClass('is-selected');
-        $(this).addClass('is-selected');
     }
 
 })();

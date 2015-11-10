@@ -1,2 +1,10 @@
 ﻿/* Page-specific styling */
 
+.tab-content {
+    padding: 15px;
+}
+
+.ms-Button.ms-Button--hero {
+    /*padding: 10px 20px 6px;*/
+    line-height: normal;
+}

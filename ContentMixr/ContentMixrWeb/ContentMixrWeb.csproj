@@ -92,6 +92,7 @@
     <None Include="Scripts\Office\1\office-vsdoc.js" />
     <Content Include="Content\OfficeThemes.css" />
     <Content Include="Scripts\jquery.Pivot.js" />
+    <Content Include="Scripts\Jquery.SearchBox.js" />
     <Content Include="Scripts\Office\1\access-web-16.00.debug.js" />
     <Content Include="Scripts\Office\1\access-web-16.00.js" />
     <Content Include="Scripts\Office\1\ar-sa\office_strings.debug.js" />
