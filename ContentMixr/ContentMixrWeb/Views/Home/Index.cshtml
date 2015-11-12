@@ -15,5 +15,16 @@
             <span class="ms-Button-label">Submit</span>
         </button>
     </div>
-} 
+    <div class="ms-List ms-List--grid">
+@foreach (var photo in Model.Photos) {
+        <div class="ms-ListItem">
+            <span class="ms-ListItem-primaryText"><img src="@photo.SquareThumbnailUrl" alt="@photo.Title" /></span>
+            <span class="ms-ListItem-secondaryText">@Html.DisplayFor(modelItem => photo.Title)</span>
+            <div class="ms-ListItem-actions">
+                <div class="ms-ListItem-action"><i class="ms-Icon ms-Icon--check"></i></div>
+            </div>
+        </div>
+}
+    </div>
+}
     <div id="Code" class="tab-content" style="display:none">Code tab</div>
