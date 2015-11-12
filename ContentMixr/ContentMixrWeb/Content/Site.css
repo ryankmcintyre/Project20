@@ -80,6 +80,10 @@ textarea {
 }
 
 .ms-Button.ms-Button--hero {
-    /*padding: 10px 20px 6px;*/
+    padding: 10px 20px 6px;
     line-height: normal;
+}
+
+#Previous {
+    float: left;
 }

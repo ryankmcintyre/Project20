@@ -17,18 +17,32 @@ namespace ContentMixrWeb.Controllers
         {
             Models.FlickrSearchModel model = new Models.FlickrSearchModel();
             model.Photos = new PhotoCollection();
+            model.Page = 1;
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Index(Models.FlickrSearchModel model)
+        public ActionResult Index(Models.FlickrSearchModel model, string paging)
         {
             string searchText = model.SearchText;
+            int curPage = model.Page;
+            int nextPage = curPage;
+
+            switch (paging)
+            {
+                case "next":
+                    nextPage++;
+                    break;
+                case "previous":
+                    nextPage--;
+                    break;
+            }
 
             Flickr flickr = new Flickr(apiKey);
-            var options = new PhotoSearchOptions { Tags = searchText, PerPage = 12, Page = 1 };
+            var options = new PhotoSearchOptions { Tags = searchText, PerPage = 12, Page = nextPage };
             PhotoCollection photos = flickr.PhotosSearch(options);
             model.Photos = photos;
+            model.Page = nextPage;
 
             return View(model);
         }

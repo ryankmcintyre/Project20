@@ -6,7 +6,7 @@
         <p>
             <div class="ms-SearchBox">
                 @Html.TextBoxFor(model => model.SearchText, new { @class = "ms-SearchBox-field" })
-                <label class="ms-SearchBox-label"><i class="ms-SearchBox-icon ms-Icon ms-Icon--search"></i>Search</label>
+                <label class="ms-SearchBox-label"><i class="ms-SearchBox-icon ms-Icon ms-Icon--search"></i></label>
                 <button class="ms-SearchBox-closeButton"><i class="ms-Icon ms-Icon--x"></i></button>
             </div>
         </p>
@@ -26,5 +26,19 @@
         </div>
 }
     </div>
+if (Model.Photos.Page > 1) {
+    <div id="Previous">
+        <button class="ms-Button ms-Button--hero" id="btnSearchFlickrPrevious" name="paging" value="previous">
+            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--caretLeft"></i></span>
+        </button>
+    </div>
+}
+if (Model.Photos.Pages > Model.Photos.Page) {
+    <div>
+        <button class="ms-Button ms-Button--hero" id="btnSearchFlickrNext" name="paging" value="next">
+            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--caretRight"></i></span>
+        </button>
+    </div>
+}<input type="hidden" id="Page" name="Page" value="@Model.Page" />
 }
     <div id="Code" class="tab-content" style="display:none">Code tab</div>
