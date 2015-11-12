@@ -17,6 +17,9 @@
             }
 
             addTabEvent();
+
+            $('span.thumbnail').click(insertPhoto);
+            $('.ms-ListItem-action').click(insertPhoto);
         });
     };
 
@@ -30,6 +33,21 @@
             $('#Code').hide();
             $('#' + divToShow).show();
         });
+    }
+
+    function insertPhoto()
+    {
+        //var photoUrl = $(this).children("#photoUrl").val();
+        var photoUrl = $(this).parents(".ms-ListItem").find("#photoUrl").val();
+        var html = "<img src='" + photoUrl + "' />";
+
+        Office.context.document.setSelectedDataAsync(html, { coercionType: "html" }, function (asyncResult) {
+            if (asyncResult.status == "failed") {
+                app.showNotification('Error: ' + asyncResult.error.message);
+            }
+        });
+
+        //app.showNotification("clicked", "clicked " + photoUrl);
     }
 
 })();

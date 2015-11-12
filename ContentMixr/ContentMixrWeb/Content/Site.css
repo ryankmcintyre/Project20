@@ -87,3 +87,12 @@ textarea {
 #Previous {
     float: left;
 }
+
+span.thumbnail {
+    cursor: pointer;
+}
+
+.instructions {
+    text-align:center;
+    padding-bottom: 10px;
+}

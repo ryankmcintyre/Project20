@@ -1,44 +1,46 @@
 ﻿@model ContentMixrWeb.Models.FlickrSearchModel
 
-@using ( Html.BeginForm() ) 
-{ 
-    <div id="Flickr" class="tab-content">
-        <p>
-            <div class="ms-SearchBox">
-                @Html.TextBoxFor(model => model.SearchText, new { @class = "ms-SearchBox-field" })
-                <label class="ms-SearchBox-label"><i class="ms-SearchBox-icon ms-Icon ms-Icon--search"></i></label>
-                <button class="ms-SearchBox-closeButton"><i class="ms-Icon ms-Icon--x"></i></button>
-            </div>
-        </p>
-        <button class="ms-Button ms-Button--hero" id="btnSearchFlickr">
-            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--check"></i></span>
-            <span class="ms-Button-label">Submit</span>
-        </button>
-    </div>
+<div id="Flickr" class="tab-content">
+    @using ( Html.BeginForm() )
+    {
+    <p>
+        <div class="instructions ms-font-m ms-fontColor-orange">Enter a search term and click Submit. Any public photos with a tag matching the search term will be returned. Click an image to insert it into the document.</div>
+        <div class="ms-SearchBox">
+            @Html.TextBoxFor(model => model.SearchText, new { @class = "ms-SearchBox-field" })
+            <label class="ms-SearchBox-label"><i class="ms-SearchBox-icon ms-Icon ms-Icon--search"></i></label>
+            <button class="ms-SearchBox-closeButton"><i class="ms-Icon ms-Icon--x"></i></button>
+        </div>
+    </p>
+    <button class="ms-Button ms-Button--hero" id="btnSearchFlickr">
+        <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--check"></i></span>
+        <span class="ms-Button-label">Submit</span>
+    </button>
+    <hr />
     <div class="ms-List ms-List--grid">
-@foreach (var photo in Model.Photos) {
+        @foreach (var photo in Model.Photos) {
         <div class="ms-ListItem">
-            <span class="ms-ListItem-primaryText"><img src="@photo.SquareThumbnailUrl" alt="@photo.Title" /></span>
+            <span class="ms-ListItem-primaryText thumbnail"><img src="@photo.SquareThumbnailUrl" alt="@photo.Title" /><input type="hidden" id="photoUrl" name="photoUrl" value="@photo.MediumUrl" /></span>
             <span class="ms-ListItem-secondaryText">@Html.DisplayFor(modelItem => photo.Title)</span>
             <div class="ms-ListItem-actions">
                 <div class="ms-ListItem-action"><i class="ms-Icon ms-Icon--check"></i></div>
             </div>
         </div>
-}
+        }
     </div>
-if (Model.Photos.Page > 1) {
+    if (Model.Photos.Page > 1) {
     <div id="Previous">
         <button class="ms-Button ms-Button--hero" id="btnSearchFlickrPrevious" name="paging" value="previous">
             <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--caretLeft"></i></span>
         </button>
     </div>
-}
-if (Model.Photos.Pages > Model.Photos.Page) {
+    }
+    if (Model.Photos.Pages > Model.Photos.Page) {
     <div>
         <button class="ms-Button ms-Button--hero" id="btnSearchFlickrNext" name="paging" value="next">
             <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--caretRight"></i></span>
         </button>
     </div>
-}<input type="hidden" id="Page" name="Page" value="@Model.Page" />
-}
-    <div id="Code" class="tab-content" style="display:none">Code tab</div>
+    }<input type="hidden" id="Page" name="Page" value="@Model.Page" />
+    }
+</div>
+<div id="Code" class="tab-content" style="display:none">Code tab</div>
