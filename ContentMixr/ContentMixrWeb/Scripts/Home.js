@@ -20,14 +20,17 @@
 
             $('span.thumbnail').click(insertPhoto);
             $('.ms-ListItem-action').click(insertPhoto);
+            $('#btnPrettifyCode').click(prettifyCode);
+            $('#btnTryAgain').click(resetCode);
+            $('#btnInsertCode').click(insertCode);
         });
     };
 
     function addTabEvent() {
         $('.ms-Pivot').on('click', '.ms-Pivot-link', function (event) {
             //event.preventDefault();
-            var clickedTabId = $(this).attr("id");
-            var divToShow = clickedTabId.replace("tab", "");
+            var clickedTabId = $(this).attr('id');
+            var divToShow = clickedTabId.replace('tab', '');
             // Hide all divs, then show the one selected
             $('#Flickr').hide();
             $('#Code').hide();
@@ -35,19 +38,45 @@
         });
     }
 
-    function insertPhoto()
-    {
-        //var photoUrl = $(this).children("#photoUrl").val();
-        var photoUrl = $(this).parents(".ms-ListItem").find("#photoUrl").val();
+    function insertPhoto() {
+        //var photoUrl = $(this).children('#photoUrl').val();
+        var photoUrl = $(this).parents('.ms-ListItem').find('#photoUrl').val();
         var html = "<img src='" + photoUrl + "' />";
 
-        Office.context.document.setSelectedDataAsync(html, { coercionType: "html" }, function (asyncResult) {
-            if (asyncResult.status == "failed") {
+        Office.context.document.setSelectedDataAsync(html, { coercionType: 'html' }, function (asyncResult) {
+            if (asyncResult.status == 'failed') {
                 app.showNotification('Error: ' + asyncResult.error.message);
             }
         });
+    }
 
-        //app.showNotification("clicked", "clicked " + photoUrl);
+    function prettifyCode() {
+        var code = $('#codeField').val();
+        $('#codePreviewPre').text(code);
+        prettyPrint();
+        $('#codePaste').hide();
+        $('#codePreview').show();
+        //app.showNotification('Code' + code);
+    }
+
+    function resetCode() {
+        $('.prettyprinted').removeClass('prettyprinted');
+        $('#codePreviewPre').text('');
+        $('#codePaste').show();
+        $('#codePreview').hide();
+    }
+
+    function insertCode() {
+        var code = $('#codePreviewPre').html().replace(/  /g, "&nbsp;&nbsp;").replace(/\n/g, "<br/>");
+        /* Trying to replace an empty space using injected font size, which is done in prettify.js
+        code = code.split("<span style=\"color: rgb(85, 85, 85); font-family: Consolas; font-size: 9pt;\"> </span>").join("&nbsp;"); */
+        code = code.split("<span style=\"color: rgb(85, 85, 85);\"> </span>").join("&nbsp;"); 
+
+        Office.context.document.setSelectedDataAsync(code, { coercionType: 'html' }, function (asyncResult) {
+            if (asyncResult.status == 'failed') {
+                app.showNotification('Error: ' + asyncResult.error.message);
+            }
+        });
     }
 
 })();

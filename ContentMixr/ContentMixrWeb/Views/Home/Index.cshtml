@@ -4,7 +4,7 @@
     @using ( Html.BeginForm() )
     {
     <p>
-        <div class="instructions ms-font-m ms-fontColor-orange">Enter a search term and click Submit. Any public photos with a tag matching the search term will be returned. Click an image to insert it into the document.</div>
+        <div class="instructions ms-font-m">Enter a search term and click Submit. Any public photos with a tag matching the search term will be returned. Click an image to insert it into the document.</div>
         <div class="ms-SearchBox">
             @Html.TextBoxFor(model => model.SearchText, new { @class = "ms-SearchBox-field" })
             <label class="ms-SearchBox-label"><i class="ms-SearchBox-icon ms-Icon ms-Icon--search"></i></label>
@@ -43,4 +43,28 @@
     }<input type="hidden" id="Page" name="Page" value="@Model.Page" />
     }
 </div>
-<div id="Code" class="tab-content" style="display:none">Code tab</div>
+<div id="Code" class="tab-content" style="display:none">
+    <div id="codePaste">
+        <div class="ms-TextField">
+            <label class="ms-Label">Code to Insert:</label>
+            <textarea class="ms-TextField-field" id="codeField"></textarea>
+        </div>
+        <button class="ms-Button ms-Button--hero" id="btnPrettifyCode">
+            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--check"></i></span>
+            <span class="ms-Button-label">Preview</span>
+        </button>
+    </div>
+    <div id="codePreview" style="display:none">
+        <button class="ms-Button ms-Button--hero" id="btnTryAgain">
+            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--reactivate"></i></span>
+            <span class="ms-Button-label">Try Again</span>
+        </button>
+        <hr />
+        <pre id="codePreviewPre" class="prettyprint"></pre>
+        <hr />
+        <button class="ms-Button ms-Button--hero" id="btnInsertCode">
+            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--check"></i></span>
+            <span class="ms-Button-label">Insert</span>
+        </button>
+    </div>
+</div>
