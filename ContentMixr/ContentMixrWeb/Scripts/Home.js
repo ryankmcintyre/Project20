@@ -16,15 +16,19 @@
                 $('.ms-SearchBox').SearchBox();
             }
 
-            addTabEvent();
-
             $('span.thumbnail').click(insertPhoto);
             $('.ms-ListItem-action').click(insertPhoto);
-            $('#btnPrettifyCode').click(prettifyCode);
-            $('#btnTryAgain').click(resetCode);
             $('#btnInsertCode').click(insertCode);
         });
     };
+
+    // Initialize non-Office dependent events
+    $(document).ready(function () {
+        addTabEvent();
+
+        $('#btnPrettifyCode').click(prettifyCode);
+        $('#btnTryAgain').click(resetCode);
+    });
 
     function addTabEvent() {
         $('.ms-Pivot').on('click', '.ms-Pivot-link', function (event) {
