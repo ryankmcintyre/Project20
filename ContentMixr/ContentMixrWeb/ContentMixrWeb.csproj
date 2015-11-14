@@ -102,6 +102,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="MixrIcon32.png" />
     <Content Include="packages.config" />
     <Content Include="Scripts\App.js" />
     <Content Include="FlickrNet.chm" />
