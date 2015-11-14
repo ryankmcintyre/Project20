@@ -3,15 +3,17 @@
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TaskPaneApp">
   <Id>c6e941b0-d3e4-4f1e-a48f-7caa3954d3e4</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>[Provider name]</ProviderName>
+  <ProviderName>Ryan McIntyre</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="ContentMixr" />
-  <Description DefaultValue="ContentMixr"/>
+  <DisplayName DefaultValue="Content Mixr" />
+  <Description DefaultValue="Content Mixr"/>
+  <!--<IconUrl DefaultValue="MixrIcon32.png" />
+  <SupportUrl DefaultValue="" />-->
   <Hosts>
     <Host Name="Document" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="~remoteAppUrl/" />
+    <SourceLocation DefaultValue="https://localhost:44300/" />
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
 </OfficeApp>
