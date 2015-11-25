@@ -7,13 +7,13 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Content Mixr" />
   <Description DefaultValue="Content Mixr"/>
-  <!--<IconUrl DefaultValue="MixrIcon32.png" />
-  <SupportUrl DefaultValue="" />-->
+  <IconUrl DefaultValue="https://contentmixr.azurewebsites.net/MixrIcon32.png" />
+  <SupportUrl DefaultValue="https://contentmixr.azurewebsites.net/Home/Support" />
   <Hosts>
     <Host Name="Document" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:44300/" />
+    <SourceLocation DefaultValue="https://contentmixr.azurewebsites.net" />
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
 </OfficeApp>

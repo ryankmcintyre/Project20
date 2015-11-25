@@ -46,5 +46,11 @@ namespace ContentMixrWeb.Controllers
 
             return View(model);
         }
+        
+        // GET: Support
+        public ActionResult Support()
+        {
+            return View();
+        }
     }
 }
