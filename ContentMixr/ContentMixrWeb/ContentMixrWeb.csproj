@@ -104,7 +104,12 @@
     <Content Include="Global.asax" />
     <Content Include="MixrIcon32.png" />
     <Content Include="MixrIcon64.png" />
+    <Content Include="MixrIcon96.png" />
     <Content Include="packages.config" />
+    <Content Include="Screenshot1.png" />
+    <Content Include="Screenshot2.png" />
+    <Content Include="Screenshot3.png" />
+    <Content Include="Screenshot4.png" />
     <Content Include="Scripts\App.js" />
     <Content Include="FlickrNet.chm" />
     <None Include="Properties\PublishProfiles\contentmixr.pubxml" />

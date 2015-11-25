@@ -6,7 +6,7 @@
   <ProviderName>Ryan McIntyre</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Content Mixr" />
-  <Description DefaultValue="Content Mixr"/>
+  <Description DefaultValue="Content Mixr is an Add-In to help you find and format content for your documents. Especially helpful when writing blog posts (e.g. WordPress) and you need to format and insert a code snippet or an image from Flickr."/>
   <IconUrl DefaultValue="https://contentmixr.azurewebsites.net/MixrIcon32.png" />
   <SupportUrl DefaultValue="https://contentmixr.azurewebsites.net/Home/Support" />
   <Hosts>
