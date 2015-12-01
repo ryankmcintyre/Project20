@@ -8,17 +8,24 @@
         $(document).ready(function () {
             app.initialize();
 
-            // Initialize Office UI Fabric Controls
-            if ($.fn.Pivot) {
-                $('.ms-Pivot').Pivot();
-            }
-            if ($.fn.SearchBox) {
-                $('.ms-SearchBox').SearchBox();
-            }
+            if (app.isBrowserSupported()) {
+                // Initialize Office UI Fabric Controls
+                if ($.fn.Pivot) {
+                    $('.ms-Pivot').Pivot();
+                }
+                if ($.fn.SearchBox) {
+                    $('.ms-SearchBox').SearchBox();
+                }
 
-            $('span.thumbnail').click(insertPhoto);
-            $('.ms-ListItem-action').click(insertPhoto);
-            $('#btnInsertCode').click(insertCode);
+                $('span.thumbnail').click(insertPhoto);
+                $('.ms-ListItem-action').click(insertPhoto);
+                $('#btnInsertCode').click(insertCode);
+            }
+            else {
+                $('.tab-content').hide();
+                $('.ms-Pivot').hide();
+                $('#NotSupported').show();
+            }
         });
     };
 

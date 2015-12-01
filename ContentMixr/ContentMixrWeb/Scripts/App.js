@@ -27,6 +27,16 @@ var app = (function () {
             $('#notification-message-body').text(text);
             $('#notification-message').slideDown('fast');
         };
+
+        // App doesn't support IE 9 since coercion type of html is not supported in IE 9
+        app.isBrowserSupported = function () {
+            var ua = navigator.userAgent, tem,
+            M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+            M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, '-?'];
+            if ((tem = ua.match(/version\/(\d+)/i)) != null) M.splice(1, 1, tem[1]);
+            var browser = M.join(' ');
+            return browser != 'MSIE 9';
+        };
     };
 
     return app;
